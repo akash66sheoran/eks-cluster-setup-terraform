@@ -10,8 +10,12 @@ module "eks_al2" {
     coredns                = {}
     eks-pod-identity-agent = {}
     kube-proxy             = {}
-    vpc-cni                = {}
-    aws-ebs-csi-driver     = {}
+    vpc-cni                = {
+      service_account_role_arn = aws_iam_role.vpc_cni_iam_role.arn
+    }
+    aws-ebs-csi-driver     = {
+      service_account_role_arn = aws_iam_role.ebs_csi_driver_iam_role.arn
+    }
     aws-efs-csi-driver     = {}
   }
 
