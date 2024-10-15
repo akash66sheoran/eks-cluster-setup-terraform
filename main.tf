@@ -41,4 +41,6 @@ module "eks_al2" {
   enable_cluster_creator_admin_permissions = true
 
   tags = local.tags
+
+  depends_on = [ module.vpc ]
 }
