@@ -6,6 +6,7 @@ resource "kubernetes_service_account" "alb_ingress_controller_sa" {
       "eks.amazonaws.com/role-arn" = aws_iam_role.alb_ingress_controller_role.arn
     }
   }
+  depends_on = [ module.eks_al2 ]
 }
 
 resource "helm_release" "alb_ingress_controller" {
